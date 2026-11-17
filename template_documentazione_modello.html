@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITOLO_MODELLO}} — Documentazione di sviluppo</title>
+<!-- TEMPLATE: stile in stile.css, comportamento in app.js (stessa cartella). Sostituire solo i segnaposto {{...}} e duplicare i blocchi di esempio. -->
+<link rel="stylesheet" href="stile.css">
+<!-- Formule: MathJax da CDN. Se la rete aziendale lo blocca, le formule restano leggibili come testo LaTeX. -->
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+
+<!-- ===== COVER ===== -->
+<header class="cover"><div class="shell">
+  <p class="kicker">{{KICKER: es. Documentazione di sviluppo · Capitoli 1–4}}</p>
+  <h1>{{TITOLO_MODELLO}}</h1>
+  <p class="sub">{{SOTTOTITOLO: 1–2 frasi su scopo del modello e su cosa copre questa guida, ricavate dal documento}}</p>
+  <div class="meta">
+    <div><span class="lab">Documento</span>{{NOME_DOCUMENTO_E_VERSIONE}}</div>
+    <div><span class="lab">Copertura</span>Capitoli 1–4</div>
+    <div><span class="lab">Fonte</span>Documentazione di sviluppo del modello</div>
+  </div>
+</div></header>
+
+<div class="shell page" id="contenuto">
+  <!-- ===== INDICE LATERALE (desktop) ===== -->
+  <aside class="toc" aria-label="Indice">
+    <div class="toc-label">Indice</div>
+    <ol>
+      <li><a href="#cap01"><span class="n">01</span>{{Titolo cap. 1}}</a></li>
+      <li><a href="#cap02"><span class="n">02</span>{{Titolo cap. 2}}</a></li>
+      <li><a href="#cap03"><span class="n">03</span>{{Titolo cap. 3}}</a></li>
+      <li><a href="#cap04"><span class="n">04</span>{{Titolo cap. 4}}</a></li>
+    </ol>
+  </aside>
+
+  <main>
+    <!-- ===== INDICE (mobile): stessi link dell'indice laterale ===== -->
+    <details class="mobile-toc"><summary>Indice dei capitoli</summary><ol>
+      <li><a href="#cap01"><span class="n">01</span>{{Titolo cap. 1}}</a></li>
+      <li><a href="#cap02"><span class="n">02</span>{{Titolo cap. 2}}</a></li>
+      <li><a href="#cap03"><span class="n">03</span>{{Titolo cap. 3}}</a></li>
+      <li><a href="#cap04"><span class="n">04</span>{{Titolo cap. 4}}</a></li>
+    </ol></details>
+
+    <!-- ===== CAPITOLO (duplicare per ogni capitolo, id cap01, cap02, ...) ===== -->
+    <section class="chapter" id="cap01">
+      <div class="chapter-head"><span class="chapter-num">01</span><h2>{{Titolo capitolo}}</h2></div>
+      <span class="chapter-kicker">{{Sottotitolo breve del capitolo}}</span>
+      <p class="lead">{{Paragrafo introduttivo: cosa contiene il capitolo e perché conta}}</p>
+
+      <div class="at-a-glance"><span class="tag">In sintesi</span>
+        <ul><li>{{Punto chiave 1, presente nel documento}}</li><li>{{Punto chiave 2}}</li><li>{{Punto chiave 3}}</li></ul>
+      </div>
+
+      <h3>1.1 · {{Titolo sezione}}</h3>
+      <p>{{Testo fedele al markdown. Termini tecnici in <strong>grassetto</strong> alla prima occorrenza.}}</p>
+
+      <div class="box def"><span class="tag">Definizione</span><p>{{Definizione data nel documento}}</p></div>
+      <div class="box intu"><span class="tag">Intuizione</span><p>{{Spiegazione semplice, solo se supportata dal documento}}</p></div>
+      <div class="box syn"><span class="tag">Assunzione / scelta di modello</span><p>{{Assunzione dichiarata dal documento}}</p></div>
+      <div class="box warn"><span class="tag">Limite / attenzione</span><p>{{Limitazione o caveat dichiarato dal documento}}</p></div>
+      <div class="box note"><span class="tag">Nota del lettore</span><p>{{Commento NON presente nel documento: usare con parsimonia}}</p></div>
+
+      <div class="eq"><span class="eq-label">(1.1)</span>\[ {{FORMULA_LATEX}} \]</div>
+      <p>Nel testo: \( {{FORMULA_INLINE}} \).</p>
+
+      <div class="cards">
+        <dl class="card"><dt>{{Termine / parametro}}</dt><dd>{{Definizione breve}}</dd></dl>
+        <dl class="card"><dt>{{Termine / parametro}}</dt><dd>{{Definizione breve}}</dd></dl>
+      </div>
+
+      <div class="table-wrap"><table>
+        <caption>{{Tabella 1.1 — didascalia come nel documento}}</caption>
+        <thead><tr><th>{{Colonna}}</th><th>{{Colonna}}</th><th class="num">{{Numerica}}</th></tr></thead>
+        <tbody><tr><td>{{...}}</td><td>{{...}}</td><td class="num">{{...}}</td></tr></tbody>
+      </table></div>
+
+      <figure>
+        <img src="img/{{NOME_FILE}}.jpg" alt="{{Descrizione della figura}}" loading="lazy">
+        <figcaption><span class="fig-id">Figura 1.1.</span> {{Didascalia come nel documento}}</figcaption>
+      </figure>
+
+      <h4>{{Sotto-sezione di terzo livello}}</h4>
+      <p>{{...}}</p>
+
+      <h3>Domande aperte per la validazione</h3>
+      <div class="qa"><p class="q">{{Domanda su un punto non coperto o non motivato nel documento}}</p><p class="a">{{Perché è rilevante / dove il documento è silente}}</p></div>
+    </section>
+
+    <footer class="closing">
+      <p>{{Nota finale: guida di studio costruita dalla documentazione di sviluppo del modello; il documento originale resta la fonte di riferimento.}}</p>
+      <a class="backtotop" href="#contenuto">↑ Torna all'indice</a>
+    </footer>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
